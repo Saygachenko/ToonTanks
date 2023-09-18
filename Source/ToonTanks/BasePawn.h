@@ -19,18 +19,20 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere)
 	class UCapsuleComponent* CapsuleComponent;
 
-	UPROPERTY()
+	UPROPERTY(EditDefaultsOnly)
 	UStaticMeshComponent* BaseMesh;
 
-	UPROPERTY()
+	UPROPERTY(EditDefaultsOnly)
 	UStaticMeshComponent* TurretMesh;
 
-	UPROPERTY()
+	UPROPERTY(EditDefaultsOnly)
 	USceneComponent* ProjectileSpawnPoint;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Speed = 400.f;
 
 public:	
 	// Called every frame
