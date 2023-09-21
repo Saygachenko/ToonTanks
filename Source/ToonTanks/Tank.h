@@ -13,7 +13,7 @@ UCLASS()
 class TOONTANKS_API ATank : public ABasePawn
 {
 	GENERATED_BODY()
-	
+
 public:
 	ATank();
 
@@ -29,6 +29,10 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
 	float Speed = 400.f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	float TurnRate = 200.f;
+
 private:
 	void Move(float Value);
+	void Turn(float Value);
 };
