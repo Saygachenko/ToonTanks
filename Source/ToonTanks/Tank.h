@@ -20,6 +20,10 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 protected:
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 	UPROPERTY(VisibleAnywhere, Category = "Components");
 	class USpringArmComponent* SpringArmComponent;
 
@@ -31,6 +35,8 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
 	float TurnRate = 200.f;
+
+	APlayerController* PlayerControllerRef;
 
 private:
 	void Move(float Value);
