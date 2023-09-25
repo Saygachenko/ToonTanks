@@ -28,4 +28,6 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USceneComponent* ProjectileSpawnPoint;
+
+	void RotateTurret(FVector LookAtTarget);
 };
