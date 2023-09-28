@@ -29,6 +29,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USceneComponent* ProjectileSpawnPoint;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
+	TSubclassOf<class AProjectile> ProjectileClass;
+
 	void RotateTurret(FVector LookAtTarget);
 	void Fire();
 };
