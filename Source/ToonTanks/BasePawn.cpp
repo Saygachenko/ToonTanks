@@ -44,15 +44,6 @@ void ABasePawn::Fire()
 {
 	FVector ProjectileSpawnPointLocation = ProjectileSpawnPoint->GetComponentLocation();
 	FRotator ProjectileSpawnPointRotation = ProjectileSpawnPoint->GetComponentRotation();
-	/*DrawDebugSphere(
-		GetWorld(), 
-		ProjectileSpawnPointLocation, 
-		25, 
-		24, 
-		FColor::Red, 
-		false, 
-		3.0f);
-	*/
 	GetWorld()->SpawnActor<AProjectile>(ProjectileClass, ProjectileSpawnPointLocation, ProjectileSpawnPointRotation);
 }
 
