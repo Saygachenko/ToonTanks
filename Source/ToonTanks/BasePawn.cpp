@@ -36,7 +36,7 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 			TurretMesh->GetComponentRotation(), 
 			LookAtRotation, 
 			DeltaTime, 
-			2.f));
+			3.f));
 }
 
 void ABasePawn::Fire()
