@@ -30,6 +30,6 @@ void AProjectile::BeginPlay()
 
 void AProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpuls, const FHitResult& Hit)
 {
-	UE_LOG(LogTemp, Display, TEXT("HitComp: %s, Other Actor: %s, OtherComp: %s"), *HitComponent->GetName(), *OtherActor->GetName(), *OtherComponent->GetName());
+	UE_LOG(LogTemp, Display, TEXT("OnHit Name: %s, HitComp: %s, Other Actor: %s, OtherComp: %s"), *GetName(), *HitComponent->GetName(), *OtherActor->GetName(), *OtherComponent->GetName());
 }
 
