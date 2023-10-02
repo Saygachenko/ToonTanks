@@ -21,6 +21,10 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
+	void HandleDestruction();
+
+	APlayerController* GetPlayerController() const { return TankPlayerController; }
+
 protected:
 
 	// Called when the game starts or when spawned
@@ -38,9 +42,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
 	float TurnRate = 200.f;
 
-	APlayerController* PlayerControllerRef;
-
 private:
+	APlayerController* TankPlayerController;
+
 	void Move(float Value);
 	void Turn(float Value);
 };
