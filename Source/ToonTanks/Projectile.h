@@ -20,10 +20,13 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
-	UStaticMeshComponent* ProjectileMesh;
+	UStaticMeshComponent* ProjectileMeshComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	class UProjectileMovementComponent* ProjectileMovementComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	class UParticleSystemComponent* TrailParticles;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Damage")
 	float Damage = 12.f;
@@ -31,6 +34,6 @@ protected:
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpuls, const FHitResult& Hit);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effects")
 	class UParticleSystem* HitParticles;
 };

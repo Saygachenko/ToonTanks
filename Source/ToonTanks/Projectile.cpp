@@ -7,6 +7,7 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "GameFramework/DamageType.h"
 #include "Kismet/GameplayStatics.h"
+#include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -14,12 +15,15 @@ AProjectile::AProjectile()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Projectile Mesh"));
-	SetRootComponent(ProjectileMesh);
+	ProjectileMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Projectile Mesh Component"));
+	SetRootComponent(ProjectileMeshComponent);
 
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement Component"));
 	ProjectileMovementComponent->InitialSpeed = 1300.f;
 	ProjectileMovementComponent->MaxSpeed = 1300.f;
+
+	TrailParticles = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Smoke Trail"));
+	TrailParticles->SetupAttachment(ProjectileMeshComponent);
 }
 
 // Called when the game starts or when spawned
@@ -27,7 +31,7 @@ void AProjectile::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
+	ProjectileMeshComponent->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
 }
 
 void AProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpuls, const FHitResult& Hit)
