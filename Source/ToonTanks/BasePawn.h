@@ -34,6 +34,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
 	TSubclassOf<class AProjectile> ProjectileClass;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effects")
+	class UParticleSystem* DeathParticles;
+
 	void RotateTurret(FVector LookAtTarget);
 	void Fire();
 };
