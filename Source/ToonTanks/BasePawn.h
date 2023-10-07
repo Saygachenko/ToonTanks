@@ -37,6 +37,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effects")
 	class UParticleSystem* DeathParticles;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sounds")
+	class USoundBase* DeathSound;
+
 	void RotateTurret(FVector LookAtTarget);
 	void Fire();
 };
