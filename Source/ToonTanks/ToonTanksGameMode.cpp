@@ -36,6 +36,9 @@ void AToonTanksGameMode::BeginPlay()
 	Super::BeginPlay();
 
 	HandleGameStart();
+
+	FTimerHandle SoundTimerHandle;
+	GetWorldTimerManager().SetTimer(SoundTimerHandle, this, &AToonTanksGameMode::StartSoundTimerHandle, StartDelay);
 }
 
 void AToonTanksGameMode::HandleGameStart()
@@ -70,4 +73,12 @@ int32 AToonTanksGameMode::GetTargetTowerCount()
 	UGameplayStatics::GetAllActorsOfClass(this, ATower::StaticClass(), Towers);
 	
 	return Towers.Num();
+}
+
+void AToonTanksGameMode::StartSoundTimerHandle()
+{
+	if (BackgroundSound)
+	{
+		UGameplayStatics::PlaySound2D(this, BackgroundSound, 0.25f);
+	}
 }

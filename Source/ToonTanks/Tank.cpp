@@ -42,7 +42,6 @@ void ATank::Tick(float DeltaTime)
 			HitResult);
 
 		RotateTurret(HitResult.ImpactPoint);
-		
 	}
 }
 
@@ -52,6 +51,7 @@ void ATank::HandleDestruction()
 
 	SetActorHiddenInGame(true);
 	SetActorTickEnabled(false);
+	bAlive = false;
 }
 
 void ATank::BeginPlay()

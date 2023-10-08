@@ -27,6 +27,9 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent)
 	void GameOver(bool bWonGame);
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sounds")
+	class USoundBase* BackgroundSound;
+
 private:
 	class ATank* Tank;
 	class AToonTankPlayerController* ToonTankPlayerController;
@@ -37,4 +40,6 @@ private:
 
 	int32 TargetTowers = 0;
 	int32 GetTargetTowerCount();
+
+	void StartSoundTimerHandle();
 };
